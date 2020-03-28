@@ -1,0 +1,33 @@
+@import "variable";
+
+@mixin mediaQuery($screenSize, $pixelSize, $typeSize) {
+  @if ($typeSize == mix) {
+    @media only screen and (min-width: #{$pixelSize}px) and (max-width: #{$pixelSize}px) {
+      .di-#{$screenSize}-12 {
+        width: 100%;
+      }
+    }
+  }@else{
+    @media only screen and (#{$typeSize}-width: #{$pixelSize}) {
+      @for $diSize from 1 through $columnNumber {
+        .di-#{$screenSize}-#{$diSize} {
+          width: percentage($diSize/$columnNumber);
+        }
+        .di-#{$screenSize}-offset-#{$diSize} {
+          margin-left: percentage($diSize/$columnNumber);
+        }
+      }
+    }
+  }
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

@@ -1,0 +1,31 @@
+@import "variable", "mixin";
+
+.container {
+  @include clearfix;
+  max-width: $gridMaxWidth;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.row {
+  @include clearfix;
+  list-style: none;
+  margin-left: -$gridGap;
+  &.row-gutterless {
+    margin-left: 0;
+  }
+}
+
+.col {
+  float: left;
+  padding-left: $gridGap;
+  box-sizing: border-box;
+  display: inline-block;
+  .row-gutterless & {
+    padding-left: 0;
+  }
+}
+
+@each $screenSize, $pixelSize, $typeSize in $breakpoints{
+  @include mediaQuery($screenSize, $pixelSize, $typeSize)
+}

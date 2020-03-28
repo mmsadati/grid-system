@@ -1,0 +1,9 @@
+
+$columnNumber: 12;
+
+$gridGap : 20px;
+
+$gridMaxWidth : 1200px + ($gridGap * 2);
+
+$breakpoints : (xs, 767px, max),(sm, 767px, min),(md, 992px, min),(lg, 1200px, min);
+
